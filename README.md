@@ -359,19 +359,21 @@ Full workinf of the website
 
 ## AI Tools Used (Optional - For Transparency Bonus)
 
-If you used AI tools during development, document them here for transparency:
+### AI Tools Used During Development
 
-**Tool Used:** Gemini,ChatGPT,Blackbox AI
+**Tools Used:** Gemini, ChatGPT, Blackbox AI  
 
-**Purpose:** [What you used it for]
-- Example: "Generated boilerplate React components"
-- Example: "Debugging assistance for async functions"
-- Example: "Code review and optimization suggestions"
+**Purpose:**  
+- Assisted in generating boilerplate JavaScript and HTML/CSS code for frontend and backend integration  
+- Helped debug asynchronous functions and real-time data synchronization issues  
+- Provided code review, optimization suggestions, and structured project documentation  
 
-**Key Prompts Used:**
-- "Create a REST API endpoint for user authentication"
-- "Debug this async function that's causing race conditions"
-- "Optimize this database query for better performance"
+**Key Prompts Used:**  
+- "Create a REST API endpoint for user authentication with Supabase"  
+- "Debug this async function that handles chat messages and room updates"  
+- "Optimize Supabase database queries for fetching room participants efficiently"  
+- "Generate system architecture and workflow diagrams for a web app project"  
+- "Write a professional project description and documentation for a long-distance relationship web app"
 
 **Percentage of AI-generated code:**80%
 

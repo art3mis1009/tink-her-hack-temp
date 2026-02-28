@@ -13,7 +13,7 @@
 - Member 2: Faridah Zafrin Ansari - TKM College of Engineering
 
 ### Hosted Project Link
-[mention your project hosted link here]
+https://art3mis1009.github.io/tink-her-hack-temp/
 
 ### Project Description
 LDR Connect is a web-based platform designed specifically for couples in long-distance relationships. The website helps partners stay emotionally connected by providing interactive and engaging features that simulate shared experiences despite physical distance.
@@ -361,7 +361,7 @@ python script.py -v --format json data.json
 
 If you used AI tools during development, document them here for transparency:
 
-**Tool Used:** [e.g., GitHub Copilot, v0.dev, Cursor, ChatGPT, Claude]
+**Tool Used:** Gemini,
 
 **Purpose:** [What you used it for]
 - Example: "Generated boilerplate React components"

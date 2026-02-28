@@ -348,9 +348,9 @@ python script.py -v --format json data.json
 ## Project Demo
 
 ### Video
-[Add your demo video link here - YouTube, Google Drive, etc.]
+https://drive.google.com/file/d/1LmQmoDRjUEzlKRsUEKr7Abl99htBZlKT/view?usp=drivesdk
 
-*Explain what the video demonstrates - key features, user flow, technical highlights*
+Full workinf of the website
 
 ### Additional Demos
 [Add any extra demo materials/links - Live site, APK download, online demo, etc.]
@@ -361,7 +361,7 @@ python script.py -v --format json data.json
 
 If you used AI tools during development, document them here for transparency:
 
-**Tool Used:** Gemini,
+**Tool Used:** Gemini,ChatGPT,Blackbox AI
 
 **Purpose:** [What you used it for]
 - Example: "Generated boilerplate React components"
@@ -373,7 +373,7 @@ If you used AI tools during development, document them here for transparency:
 - "Debug this async function that's causing race conditions"
 - "Optimize this database query for better performance"
 
-**Percentage of AI-generated code:** [Approximately X%]
+**Percentage of AI-generated code:**80%
 
 **Human Contributions:**
 - Architecture design and planning
@@ -395,7 +395,7 @@ If you used AI tools during development, document them here for transparency:
 
 ## License
 
-This project is licensed under the [LICENSE_NAME] License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 **Common License Options:**
 - MIT License (Permissive, widely used)

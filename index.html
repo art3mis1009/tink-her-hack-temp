@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LDR Connect - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="heartbeat">❤️</div>
+        <h1>LDR Connect</h1>
+        <p>Stay connected with your loved one!</p>
+        
+        <div class="auth-tabs">
+            <button class="active" onclick="showAuth('login')" id="tab-login">Login</button>
+            <button onclick="showAuth('signup')" id="tab-signup">Sign Up</button>
+        </div>
+        
+        <div class="auth-form active" id="form-login">
+            <div class="input-group">💌 <input type="email" id="login-email" placeholder="Email Address"></div>
+            <div class="input-group">🔒 <input type="password" id="login-password" placeholder="Password"></div>
+            <button onclick="login()">💖 Login 💖</button>
+        </div>
+        
+        <div class="auth-form" id="form-signup">
+            <div class="input-group">💌 <input type="email" id="signup-email" placeholder="Email Address"></div>
+            <div class="input-group">🔒 <input type="password" id="signup-password" placeholder="Password"></div>
+            <div class="input-group">🖋️ <input type="text" id="signup-username" placeholder="Your Name"></div>
+            <button onclick="signup()">🌹 Create Account 🌹</button>
+        </div>
+        
+        <p id="auth-error" style="color: red;"></p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>

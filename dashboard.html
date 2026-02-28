@@ -1,0 +1,190 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LDR Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main App Container -->
+    <div id="dashboard-view">
+        
+        <!-- Navigation -->
+        <div class="navbar">
+            <span>Welcome, <b id="user-display"></b></span>
+            <button class="nav-btn" onclick="togglePairingModal()" id="pairing-btn">👥 Pair Room</button>
+            <button class="nav-btn active" onclick="showSection('chat')">Chat ❤️</button>
+            <button class="nav-btn" onclick="showSection('games')">Games 🎮</button>
+            <button class="nav-btn" onclick="showSection('watch')">Watch 🎬</button>
+            <button class="nav-btn" onclick="showSection('listen')">Listen 🎵</button>
+            <button class="nav-btn" onclick="showSection('draw')">Draw ✏️</button>
+            <button class="nav-btn" onclick="showSection('calendar')">Calendar 📅</button>
+            <button class="nav-btn" onclick="logout()">Logout</button>
+        </div>
+        <!-- Pairing Modal -->
+        <div id="pairing-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.4); align-items:center; justify-content:center; z-index:1000;">
+            <div style="background:white; padding:20px; border-radius:8px; max-width:400px; text-align:center;">
+                <h3>👥 Pair Room</h3>
+                <p id="pair-status">Not paired</p>
+                <div id="pair-input-area" style="display:block;">
+                    <p>Enter partner's code or generate yours:</p>
+                    <input type="text" id="partner-code" placeholder="Partner code" style="width:100%; padding:8px; margin:8px 0;">
+                    <button onclick="pairWithPartner()" style="padding:8px 16px;">Connect</button>
+                    <hr>
+                    <p>Your code: <strong id="my-code">---</strong></p>
+                    <button onclick="generatePairingCode()" style="padding:8px 16px;">Generate Code</button>
+                    <div id="pair-link-area" style="margin-top:8px; display:none;">
+                        <p>Or share link:</p>
+                        <a href="#" id="pair-link" target="_blank" style="word-break:break-all;"></a>
+                    </div>
+                </div>
+                <div id="pair-action-area" style="display:none;">
+                    <p style="color:green; font-weight:bold;">Paired with <span id="paired-partner-name">---</span></p>
+                    <button onclick="unpair()" style="padding:8px 16px; background:#ff6b6b; color:white; border:none; border-radius:4px; cursor:pointer;">Unpair</button>
+                </div>
+                <button onclick="togglePairingModal()" style="margin-top:12px; padding:8px 16px;">Close</button>
+            </div>
+        </div>
+
+        <!-- Section 1: Chat -->
+        <div id="section-chat" class="content-area">
+            <h2>❤️ Funny Chat</h2>
+            <div id="chat-container">
+                <div id="messages"></div>
+            </div>
+            <div style="display: flex; margin-top: 10px;">
+                <input type="text" id="message-input" placeholder="Type something cute..." style="margin:0; border-radius: 5px 0 0 5px;">
+                <button onclick="sendMessage()" style="width: 80px; border-radius: 0 5px 5px 0;">Send</button>
+            </div>
+            <br>
+            <label>Theme: </label>
+            <select id="theme-selector" onchange="changeTheme()">
+                <option value="default">Default</option>
+                <option value="neon">Neon</option>
+                <option value="retro">Retro</option>
+            </select>
+        </div>
+
+        <!-- Section 2: Games (Tic Tac Toe + Truth or Dare) -->
+        <div id="section-games" class="content-area" style="display: none; text-align: center;">
+            <h2>🎮 Games</h2>
+            <div style="margin-bottom:12px;">
+                <button class="game-tab active" onclick="selectGameView('tic')">Tic Tac Toe</button>
+                <button class="game-tab" onclick="selectGameView('tod')">Truth or Dare</button>
+            </div>
+
+            <!-- Tic Tac Toe container -->
+            <div id="games-tic">
+                <h3>Tic Tac Toe</h3>
+                <p>You are X, Friend is O (Local Pass & Play)</p>
+                <div class="game-board" id="board">
+                    <div class="cell" onclick="makeMove(0)"></div>
+                    <div class="cell" onclick="makeMove(1)"></div>
+                    <div class="cell" onclick="makeMove(2)"></div>
+                    <div class="cell" onclick="makeMove(3)"></div>
+                    <div class="cell" onclick="makeMove(4)"></div>
+                    <div class="cell" onclick="makeMove(5)"></div>
+                    <div class="cell" onclick="makeMove(6)"></div>
+                    <div class="cell" onclick="makeMove(7)"></div>
+                    <div class="cell" onclick="makeMove(8)"></div>
+                </div>
+                <h3 id="game-status"></h3>
+                <button onclick="resetGame()" style="width: 200px;">New Game</button>
+            </div>
+
+            <!-- Truth or Dare container -->
+            <div id="games-tod" style="display:none; text-align:center;">
+                <h3>Truth or Dare</h3>
+                <p id="tod-instructions">Pick Truth or Dare and answer honestly!</p>
+                <div style="margin:12px 0;">
+                    <button onclick="pickTOD('truth')" style="margin-right:8px;">Pick Truth</button>
+                    <button onclick="pickTOD('dare')">Pick Dare</button>
+                </div>
+                <div id="tod-prompt" style="min-height:60px; font-weight:bold; color:#333; margin-bottom:10px;">---</div>
+                <div id="tod-answer-area" style="display:none;">
+                    <textarea id="tod-answer-input" placeholder="Type your answer here..." style="width:70%; height:100px; padding:8px;"></textarea>
+                    <div style="margin-top:8px;"><button onclick="submitTodAnswer()">Submit Answer</button></div>
+                </div>
+                <div id="tod-feedback" style="margin-top:12px; font-weight:bold; color:green;"></div>
+            </div>
+        </div>
+
+        <!-- Section 3: Draw & Guess Game -->
+        <div id="section-draw" class="content-area" style="display:none; text-align: center;">
+            <h2>🎨 Draw & Guess</h2>
+
+            <div style="margin-bottom:12px;">
+                <button onclick="setDrawRole('drawer')" class="game-btn active">I'm Drawing</button>
+                <button onclick="setDrawRole('guesser')" class="game-btn">I'm Guessing</button>
+            </div>
+
+            <div id="drawer-view" style="display:block;">
+                <p style="font-weight:bold;">Word to draw: <span id="draw-word" style="color:#d46; font-size:20px;">---</span></p>
+                <div style="margin:10px 0;">
+                    <label>Color:</label>
+                    <input type="color" id="brushColor" value="#000000">
+                    <label style="margin-left:12px;">Brush:</label>
+                    <input type="range" id="brushSize" min="1" max="30" value="5">
+                    <span id="brushSizeDisplay">5</span>px
+                    <button onclick="clearCanvas()" style="margin-left:12px;">Clear</button>
+                </div>
+                <canvas id="drawCanvas" style="border:1px solid #000; width:80%; height:400px; display:block; margin:0 auto;"></canvas>
+                <div style="margin-top:8px;"><button onclick="finishDrawing()">Finish Drawing (Show to Guesser)</button></div>
+            </div>
+
+            <div id="guesser-view" style="display:none;">
+                <p style="font-weight:bold;">Your partner drew this — what is it?</p>
+                <img id="snapshot-img" src="" alt="Drawing snapshot" style="max-width:80%; border:1px solid #ccc; background:white; display:block; margin:0 auto;" />
+                <div style="margin-top:10px;"><input type="text" id="guess-input" placeholder="Type your guess here" style="width:60%; padding:8px;"></div>
+                <div style="margin-top:8px;"><button onclick="submitGuess()">Submit Guess</button></div>
+                <div id="guess-result" style="margin-top:10px; font-weight:bold;"></div>
+            </div>
+
+            <div style="margin-top:18px; background:#f8f8f8; padding:10px; border-radius:6px; display:inline-block;">
+                <strong>Score:</strong> <span id="draw-score">0</span>
+                <button onclick="startRound()" style="margin-left:12px;">New Round</button>
+            </div>
+        </div>
+
+        <!-- Section 4: Watch Together -->
+        <div id="section-watch" class="content-area" style="display:none; text-align: center;">
+            <h2>🎬 Watch Together</h2>
+            <input type="text" id="videoUrl" placeholder="YouTube URL" style="width:60%;">
+            <button onclick="syncVideo()">Play</button>
+            <div id="sharedVideo" style="margin-top:20px;"></div>
+        </div>
+
+        <!-- Section 4: Listen Together -->
+        <div id="section-listen" class="content-area" style="display:none; text-align: center;">
+            <h2>🎵 Listen Together</h2>
+            <input type="text" id="spotifyUrl" placeholder="Spotify playlist URL" style="width:60%;">
+            <button onclick="loadSpotifyPlaylist()">Load</button>
+            <div id="musicPlayer" style="margin-top:20px;"></div>
+        </div>
+
+        <!-- Section X: Calendar -->
+        <div id="section-calendar" class="content-area" style="display:none; text-align: center;">
+            <h2>📅 Important Dates</h2>
+            <p>Add anniversaries, birthdays, and other memories.</p>
+            <div style="margin:12px 0; display:flex; gap:8px; justify-content:center; align-items:center; flex-wrap:wrap;">
+                <input id="event-title" placeholder="Event title (e.g. Anniversary)" style="padding:8px; width:220px;">
+                <input id="event-date" type="date" style="padding:8px;">
+                <select id="event-type" style="padding:8px;">
+                    <option value="birthday">Birthday</option>
+                    <option value="anniversary">Anniversary</option>
+                    <option value="other">Other</option>
+                </select>
+                <button onclick="addCalendarEvent()" style="padding:8px 12px;">Add</button>
+            </div>
+            <div id="calendar-list" style="max-width:800px;margin:12px auto;text-align:left;">
+                <!-- events will render here -->
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>

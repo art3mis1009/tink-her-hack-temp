@@ -2,27 +2,27 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# LDR Connect
 
-## Basic Details
+## A website which solves communication gaps, boring conversations between couples in long distance relationships.
 
-### Team Name: [Name]
+### Team Name: Bit Spark
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: Alakananda D - TKM College of Engineering
+- Member 2: Faridah Zafrin Ansari - TKM College of Engineering
 
 ### Hosted Project Link
 [mention your project hosted link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+LDR Connect is a web-based platform designed specifically for couples in long-distance relationships. The website helps partners stay emotionally connected by providing interactive and engaging features that simulate shared experiences despite physical distance.
 
 ### The Problem statement
-[What problem are you solving?]
+Couples in long-distance relationships often struggle to maintain emotional connection due to physical separation and limited shared experiences. While communication tools exist, they do not provide a unified space for chatting, playing games, planning events, and enjoying entertainment together. Therefore, there is a need for an integrated platform that enables couples to connect, interact, and share meaningful experiences in real time despite the distance.
 
 ### The Solution
-[How are you solving it?]
+LDR Connect provides an all-in-one digital platform designed specifically for couples in long-distance relationships. It integrates real-time chat, interactive games, quizzes, a shared calendar, and synchronized movie and music features into a single secure space. By combining communication and shared activities in one platform, it helps couples strengthen emotional bonds and create meaningful experiences together despite the distance.
 
 ---
 
@@ -31,25 +31,25 @@
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+- Languages used: html,javascript,css
+- Frameworks used: Supabase (Backend & Realtime Framework)
+- Libraries used: Supabase JavaScript SDK, YouTube Embed API,Spotify Web API
+- Tools used: VS Code
 
 **For Hardware:**
-- Main components: [List main components]
-- Specifications: [Technical specifications]
-- Tools required: [List tools needed]
+- Main components:Not Applicable
+- Specifications:Not Applicable
+- Tools required:Not Applicable
 
 ---
 
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+- Feature 1: A private messaging system that allows couples to communicate instantly and securely, enabling smooth conversations and continuous emotional connection.
+- Feature 2:Fun multiplayer games and relationship quizzes that encourage bonding, teamwork, and deeper understanding between partners.
+- Feature 3: Synchronized video and music sharing features that allow couples to watch movies and listen to songs simultaneously, creating shared entertainment experiences
+- Feature 4: A collaborative calendar where couples can save important dates
 
 ---
 
@@ -70,10 +70,10 @@ List the key features of your project:
 ### For Hardware:
 
 #### Components Required
-[List all components needed with specifications]
+Not Applicable
 
 #### Circuit Setup
-[Explain how to set up the circuit]
+Not Applicable
 
 ---
 
@@ -83,11 +83,11 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+<img width="1910" height="942" alt="image" src="https://github.com/user-attachments/assets/ca937034-a59b-420c-9a37-5d91013740b0" />
+login/signup page
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+<img width="1749" height="941" alt="image" src="https://github.com/user-attachments/assets/ac345409-04cc-4956-b3ea-41d96635838f" />
+
 
 ![Screenshot3](Add screenshot 3 here with proper name)
 *Add caption explaining what this shows*
